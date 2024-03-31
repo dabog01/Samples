@@ -53,10 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (moveCount === 64) {
                     calculateSumOfDigits(boardValues);
                     stopSequence = true;
+                    document.getElementById("stopBtn").disabled = true; // Desactivar el botón stopBtn al finalizar el evento
+                    document.getElementById("cleanBtn").disabled = false;
                     return;
                 }
 
-                document.getElementById("cleanBtn").disabled = false;
             }
 
             setTimeout(() => {
@@ -66,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         moveKnightToPosition(0);
     });
+
 
     function addPositionToRouteTable(move, row, col) {
         const routeTable = document.getElementById("routeTable");
@@ -126,12 +128,11 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("stopBtn").addEventListener("click", function () {
         stopSequence = true;
         document.getElementById("cleanBtn").disabled = false;
-        document.getElementById("stopBtn").disabled = true;
     });
 
     document.getElementById("cleanBtn").addEventListener("click", function () {
         clearRouteTable();
         document.getElementById("stopBtn").disabled = false;
-
+        document.getElementById("startBtn").disabled = false;
     });
 });
