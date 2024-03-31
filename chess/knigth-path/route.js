@@ -50,12 +50,6 @@ class KnightRoute {
         return moves.slice(0, 64);
     }
 
-
-    generatePositionsFromCurrentPosition() {
-        const currentPosition = this.knight.getCurrentPosition();
-        return this.generatePositions(currentPosition.row, currentPosition.col);
-    }
-
     generatePositions(startx, starty) {
         let positions = [];
         let currentx = startx;
