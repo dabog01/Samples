@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let stopSequence = false;
     let visitedPositions = new Set();
     let moveCount = 0;
-    let moveSpeed = 1; // Inicializamos la velocidad de movimiento del caballo
+    let moveSpeed = 0; // Inicializamos la velocidad de movimiento del caballo
     let boardValues = []; // Para mantener un registro de los valores de cada posición del tablero
 
     document.getElementById("startBtn").addEventListener("click", function () {
