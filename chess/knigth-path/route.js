@@ -1,16 +1,12 @@
-class KnightRoute {
-    constructor(knight) {
-        this.deltax = [-1, -2, -2, -1, 1, 2, 2, 1];
-        this.deltay = [-2, -1, 1, 2, 2, 1, -1, -2];
-
+class KnightTour {
+    constructor() {
         this.chessBoard = Array.from({ length: 8 }, () => Array(8).fill(0));
-        this.positions = Array.from({ length: 64 }, () => Array(2).fill(0));
-
-        this.knight = knight;
+        this.deltax = [2, 1, -1, -2, -2, -1, 1, 2];
+        this.deltay = [1, 2, 2, 1, -1, -2, -2, -1];
     }
 
     isAvailableNeighbor(x, y, board) {
-        return x >= 0 && x < board.length && y >= 0 && y < board[0].length && board[x][y] === 0;
+        return x >= 0 && y >= 0 && x < 8 && y < 8 && board[x][y] === 0;
     }
 
     getAvailableNeighbors(x, y, board) {
@@ -47,7 +43,7 @@ class KnightRoute {
             }
         });
 
-        return moves.slice(0, 64);
+        return moves;
     }
 
     generatePositions(startx, starty) {
@@ -71,5 +67,4 @@ class KnightRoute {
 
         return positions;
     }
-
 }
